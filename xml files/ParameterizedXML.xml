@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Parameterized Suite">
+	<!--  defining parameter in XML file-->
+	<parameter name="invalidUsername" value="test@gmail.com"/>
+	<parameter name="invalidPassword" value="test123"/>
+	
+  <test name="Parameterized Test">
+    <classes>
+	  <class name="testPkg.LoginFunctionalityTest">
+		  <methods>
+			  <include name="negativeLoginFunctionalityTestUsingXMLparameters"/>
+		  </methods>
+	  </class>
+		  
+    </classes>
+  </test> <!-- Regression Test -->
+</suite> <!-- Regression Suite for Release 1.0 -->

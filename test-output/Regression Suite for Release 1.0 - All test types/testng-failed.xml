@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Regression Suite for Release 1.0 - All test types]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Smoke Test(failed)">
+    <groups>
+      <run>
+        <include name="Smoke Test"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="testPkg.SearchFunctionalityTest">
+        <methods>
+          <include name="loadApp"/>
+          <include name="validateSearchTxtBoxEnabled"/>
+          <include name="closeApp"/>
+        </methods>
+      </class> <!-- testPkg.SearchFunctionalityTest -->
+    </classes>
+  </test> <!-- Smoke Test(failed) -->
+  <test thread-count="5" name="Integration Test(failed)">
+    <groups>
+      <run>
+        <include name="Integration Test"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="testPkg.LoginFunctionalityTest">
+        <methods>
+          <include name="negativeLoginFunctionalityTest" invocation-numbers="0 1"/>
+          <include name="negativeLoginFunctionalityTestUsingKeyboardKeys" invocation-numbers="0 1"/>
+          <include name="loadApp"/>
+          <include name="closeApp"/>
+        </methods>
+      </class> <!-- testPkg.LoginFunctionalityTest -->
+    </classes>
+  </test> <!-- Integration Test(failed) -->
+  <test thread-count="5" name="Regression Test(failed)">
+    <groups>
+      <run>
+        <include name="Regression Test"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="testPkg.LoginFunctionalityTest">
+        <methods>
+          <include name="negativeLoginFunctionalityTest" invocation-numbers="0 1"/>
+          <include name="negativeLoginFunctionalityTestUsingKeyboardKeys" invocation-numbers="0 1"/>
+          <include name="closeApp"/>
+          <include name="loadApp"/>
+        </methods>
+      </class> <!-- testPkg.LoginFunctionalityTest -->
+      <class name="testPkg.SearchFunctionalityTest">
+        <methods>
+          <include name="loadApp"/>
+          <include name="negativeSearchFunctionalityTestByClickSearchBtn"/>
+          <include name="validateSearchTxtBoxEnabled"/>
+          <include name="closeApp"/>
+          <include name="positiveSearchFunctionalityTestHittingEnterKey"/>
+        </methods>
+      </class> <!-- testPkg.SearchFunctionalityTest -->
+    </classes>
+  </test> <!-- Regression Test(failed) -->
+</suite> <!-- Failed suite [Regression Suite for Release 1.0 - All test types] -->

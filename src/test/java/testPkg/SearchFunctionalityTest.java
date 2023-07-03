@@ -15,7 +15,7 @@ public class SearchFunctionalityTest extends BaseClass{
 	SearchResultPage srp;
 	CommonFunctionalities cf;
 	
-	@BeforeMethod
+	@BeforeMethod(alwaysRun=true)
 	public void loadApp() {
 		initialization();
 		sfp = new SearchFunctionalityPage();
@@ -23,13 +23,13 @@ public class SearchFunctionalityTest extends BaseClass{
 		cf = new CommonFunctionalities();
 	}
 	
-	@AfterMethod
+	@AfterMethod(alwaysRun=true)
 	public void closeApp() {
 		tearDown();
 	}
 	
 	@Test(dataProviderClass=dataPkg.PositiveSearchFunctionalityTestData.class, 
-			dataProvider="positiveSearchData", enabled=false) // enabled=false -> test method execution will ignored
+			dataProvider="positiveSearchData", enabled=false, groups= {"Regression Test","E2E Test"}) // enabled=false -> test method execution will ignored
 	public void positiveSearchFunctionalityTestByClickingSearchBtn(String product) {
 //		WebElement searchTxtBox = driver.findElement(By.id("twotabsearchtextbox"));
 //		searchTxtBox.sendKeys(product);
@@ -56,7 +56,7 @@ public class SearchFunctionalityTest extends BaseClass{
 	
 	@Test(dataProviderClass=dataPkg.PositiveSearchFunctionalityTestData.class, 
 			dataProvider="positiveSearchData", enabled=true, priority=0, 
-			dependsOnMethods="validateSearchTxtBoxEnabled") // dependsOnMethods -> depending will be skipped if primary method fails
+			dependsOnMethods="validateSearchTxtBoxEnabled", groups= {"Regression Test","E2E Test"}) // dependsOnMethods -> depending will be skipped if primary method fails
 	public void positiveSearchFunctionalityTestHittingEnterKey(String product) {
 		sfp.enterProductInSearchTxtBox(product);
 		cf.hitEnterKey();
@@ -70,7 +70,7 @@ public class SearchFunctionalityTest extends BaseClass{
 	
 	@Test(dataProviderClass=dataPkg.NegativeSearchFunctionalityTestData.class, 
 			dataProvider="negativeSearchData", enabled=true, priority=1,
-			dependsOnMethods="validateSearchTxtBoxEnabled")
+			dependsOnMethods="validateSearchTxtBoxEnabled", groups= {"Regression Test","E2E Test"})
 	public void negativeSearchFunctionalityTestByClickSearchBtn(String invalidProduct) {
 		sfp.enterProductInSearchTxtBox(invalidProduct);
 		sfp.clickSearchBtn();
@@ -78,7 +78,7 @@ public class SearchFunctionalityTest extends BaseClass{
 		Assert.assertTrue(srp.validateNoResultHeaderProductNameDisplay(invalidProduct));
 	}
 	
-	@Test
+	@Test(groups="Smoke Test")
 	public void validateSearchTxtBoxEnabled() {
 		Assert.assertFalse(sfp.validateSearchTxtBoxFunctional());
 	}

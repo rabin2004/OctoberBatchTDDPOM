@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Regression Suite for Release 1.0">
+  <test name="Targeted Test">
+    <classes>
+      <class name="testPkg.SearchFunctionalityTest">
+		  <methods>
+			  <!-- include method will run, rest will be excluded-->
+			  <include name="validateSearchTxtBoxEnabled"/>
+		  </methods>
+	  </class>
+	  <class name="testPkg.LoginFunctionalityTest">
+		  <methods>
+			  <!-- exclude method will not run, rest will be include/will execute-->
+			  <exclude name="negativeLoginFunctionalityTestUsingKeyboardKeys"/>
+		  </methods>
+	  </class>
+		  
+    </classes>
+  </test> <!-- Regression Test -->
+</suite> <!-- Regression Suite for Release 1.0 -->

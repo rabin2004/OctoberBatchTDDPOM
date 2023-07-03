@@ -3,15 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testPkg.SearchFunctionalityTest">
+      <class name="testPkg.LoginFunctionalityTest">
         <methods>
+          <include name="negativeLoginFunctionalityTest" invocation-numbers="0 1"/>
           <include name="loadApp"/>
-          <include name="negativeSearchFunctionalityTestByClickSearchBtn"/>
-          <include name="validateSearchTxtBoxEnabled"/>
           <include name="closeApp"/>
-          <include name="positiveSearchFunctionalityTestHittingEnterKey"/>
         </methods>
-      </class> <!-- testPkg.SearchFunctionalityTest -->
+      </class> <!-- testPkg.LoginFunctionalityTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
